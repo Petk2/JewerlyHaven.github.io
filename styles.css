@@ -1,0 +1,854 @@
+/* Веб-безопасные шрифты */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Улучшенные стили для текста */
+h1, h2, h3, h4, h5, h6 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 600;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+p, span, div, a, button {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#Gmenu {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: absolute;
+    top: 10px;
+    left: 40%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 125px;
+}
+
+.gorizontal-menu {
+    width: 200px;
+    margin-top: 100px;
+
+}
+
+.custom-list {
+    list-style-type: none;
+    /*маркеры списка */
+    padding: 0;
+    /*отступы */
+}
+
+.gorizontal-menu a {
+    background: #CFB53B;
+    color: white;
+    display: block;
+    padding: 12px 0;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.gorizontal-menu a:hover {
+    background-color: #CFB53B;
+}
+
+.gorizontal-menu a.active {
+    background-color: #CFB53B;
+    color: white;
+}
+
+h11 {
+    margin-left: 10%;
+
+}
+
+.absolute {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.custom-list {
+    height: 50px;
+    width: 520px;
+    margin: auto;
+    margin-top: 50px;
+    padding: 0;
+}
+
+.custom-list li {
+    list-style: none;
+    float: left;
+    background: #138a8a;
+    color: aliceblue;
+    width: 100px;
+    margin: 5px;
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 7px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-list .a {
+    position: absolute;
+    background: #CFB53B;
+    width: 100px;
+    border-radius: 7px;
+    padding: 10px;
+    font-size: 20px;
+    top: 0;
+    left: -120px;
+    transition: left 0.3s;
+    -webkit-transition: left 0.3s;
+    -moz-transition: left 0.3s;
+    -o-transition: left 0.3s;
+}
+
+.custom-list li:hover .a {
+    left: 0;
+}
+
+.mini-ik {
+    align-items: center;
+    display: flex;
+    position: absolute;
+    top: 450px;
+    left: 100px;
+
+}
+
+.ik-1 {
+    margin-right: 10px;
+    /* Отступ  изображение и текст */
+
+}
+
+.ikk-1 {
+    font-size: 18px;
+}
+
+.mini-ik2 {
+    align-items: center;
+    display: flex;
+    position: absolute;
+    top: 505px;
+    left: 100px;
+}
+
+.ik-2 {
+    margin-right: 10px;
+    /* Отступ  изображение и текст */
+
+}
+
+.ikk-2 {
+    font-size: 18px;
+}
+
+.mini-ik3 {
+    align-items: center;
+    display: flex;
+    position: absolute;
+    top: 450px;
+    left: 500px;
+}
+
+.ik-3 {
+    margin-right: 10px;
+    /* Отступ  изображение и текст */
+
+}
+
+.ikk-3 {
+    font-size: 18px;
+}
+
+.mini-ik4 {
+    align-items: center;
+    display: flex;
+    position: absolute;
+    top: 505px;
+    left: 506px;
+}
+
+.ik-4 {
+    margin-right: 10px;
+    /* Отступ  изображение и текст */
+
+}
+
+.ikk-4 {
+    font-size: 18px;
+}
+
+h2 {
+    padding-left: 0px;
+    position: absolute;
+    top: 370px;
+    /* Сдвинуть вверх */
+    left: 104px;
+    font-size: 29px;
+}
+
+.h12 {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.h12 {
+    position: absolute;
+    top: 160px;
+}
+
+.glavn {
+    max-width: 800px;
+    width: 90%;
+    font-size: 18px;
+    margin-top: 550px;
+    /* или другое фиксированное значение */
+    margin-left: 12vh;
+    margin-right: auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.tekst1 {
+    padding-left: 100px;
+    margin-top: 10px;
+    padding-left: 600px;
+
+}
+
+.tekst1 {
+    position: absolute;
+    top: 145px;
+    margin-left: 99vh;
+
+}
+
+.tekst2 {
+    padding-left: 100px;
+    margin-top: 10px;
+    padding-left: 110px;
+    font-size: 18px;
+
+}
+
+.tekst2 {
+    position: absolute;
+    top: 576px;
+    margin-left: 101vh;
+
+}
+
+.tekst3 {
+    padding-left: 100px;
+    margin-top: 10px;
+    padding-left: 110px;
+    font-size: 18px;
+
+}
+
+.tekst3 {
+    position: absolute;
+    top: 670px;
+    margin-left: 101vh;
+
+}
+
+.tekst4 {
+    padding-left: 450px;
+    margin-top: -4%;
+    max-width: 1000px;
+    font-size: 18px;
+
+}
+
+.tekst4 {
+    position: absolute;
+    top: 487px;
+    margin-left: 99vh;
+
+}
+
+.tekst44 {
+    padding-left: 100px;
+    margin-top: 10px;
+    padding-left: 110px;
+    font-size: 18px;
+
+}
+
+.tekst44 {
+    position: absolute;
+    top: 900px;
+    margin-left: 101vh;
+    max-width: 300px;
+
+}
+
+.tekst45 {
+    padding-left: 100px;
+    margin-top: 10px;
+    padding-left: 110px;
+    font-size: 18px;
+
+}
+
+.tekst45 {
+    position: absolute;
+    top: 900px;
+    margin-left: 140vh;
+    max-width: 350px;
+
+}
+
+.otsiv-2 {
+    position: absolute;
+    top: 860px;
+    align-items: center;
+    display: flex;
+    max-width: 200px;
+    margin-left: 152vh;
+
+}
+
+.otsiv-22 {
+
+    margin-right: 5px;
+}
+
+.otsiv-222 {
+    font-size: 21px;
+    text-align: center;
+
+}
+
+.otsiv-1 {
+    position: absolute;
+    top: 860px;
+    align-items: center;
+    display: flex;
+    max-width: 240px;
+    margin-left: 113vh;
+
+}
+
+.otsiv-11 {
+
+    margin-right: 5px;
+}
+
+.otsiv-111 {
+    font-size: 21px;
+    text-align: center;
+
+}
+
+.tekst49 {
+    position: absolute;
+
+    padding-left: 400px;
+    margin-top: 0px;
+}
+
+.tekst49 {
+    position: absolute;
+    top: 680px;
+}
+
+.tekst48 {
+    margin-top: 8px;
+    margin-left: 12.5vh;
+    margin-right: auto;
+    max-width: 650px;
+    width: 90%;
+    font-size: 18px;
+}
+
+.tekst48 {
+    max-width: 800px;
+    width: 90%;
+    font-size: 18px;
+    margin-top: 40px;
+    /* или другое фиксированное значение */
+    margin-left: 12vh;
+    margin-right: auto;
+    padding: 10px;
+    box-sizing: border-box;
+
+}
+
+.opros {
+    position: absolute;
+    top: 8vh;
+    left: 82%;
+    font-family: Arial, sans-serif;
+    background-color: rgba(255, 255, 255, 0.1);
+    max-width: 300px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    max-height: 430px;
+}
+
+.opros-button button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: #218838;
+    max-height: 40px;
+    position: relative;
+    left: 100px;
+    cursor: pointer;
+    border-radius: 10px;
+
+}
+
+.tekst-opros {
+    text-align: center;
+    font-size: 25px;
+}
+
+h2,
+h3,
+h4 {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold-accent);
+    margin-bottom: 18px;
+
+}
+
+/* Стили для кнопки "Добавить в корзину" */
+.add-to-cart {
+    background: linear-gradient(135deg, #CFB53B, #D4AF37, #B8860B);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(207, 181, 59, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Georgia', serif;
+    min-width: 180px;
+    margin-top: 10px;
+}
+
+.add-to-cart::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.add-to-cart:hover::before {
+    left: 100%;
+}
+
+.add-to-cart:hover {
+    background: linear-gradient(135deg, #D4AF37, #CFB53B, #DAA520);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(207, 181, 59, 0.4);
+}
+
+.add-to-cart:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(207, 181, 59, 0.3);
+}
+
+.add-to-cart::after {
+    content: '🛒';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart:hover::after {
+    transform: translateY(-50%) scale(1.1);
+    opacity: 1;
+}
+
+/* Анимация при клике */
+.add-to-cart:active::after {
+    transform: translateY(-50%) scale(0.9);
+}
+
+/* Эффект пульсации для привлечения внимания */
+@keyframes pulse-attention {
+    0% {
+        box-shadow: 0 4px 15px rgba(207, 181, 59, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 15px rgba(207, 181, 59, 0.6), 0 0 20px rgba(207, 181, 59, 0.4);
+    }
+    100% {
+        box-shadow: 0 4px 15px rgba(207, 181, 59, 0.3);
+    }
+}
+
+.add-to-cart {
+    animation: pulse-attention 2s infinite;
+}
+
+/* Отключаем анимацию при наведении */
+.add-to-cart:hover {
+    animation: none;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .add-to-cart {
+        padding: 10px 20px;
+        font-size: 14px;
+        min-width: 160px;
+    }
+    
+    .add-to-cart::after {
+        right: 12px;
+        font-size: 16px;
+    }
+
+    /* Блок преимуществ */
+    .mini-ik, .mini-ik2, .mini-ik3, .mini-ik4 {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 10px 0 10px 0;
+        padding: 0 10px;
+        background: rgba(255,255,255,0.04);
+        border-radius: 10px;
+    }
+    .ik-1, .ik-2, .ik-3, .ik-4 {
+        margin: 0 10px 0 0;
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+    }
+    .ikk-1, .ikk-2, .ikk-3, .ikk-4 {
+        font-size: 15px;
+        line-height: 1.3;
+    }
+    /* Заголовки */
+    h2, .h12, .h11 {
+        position: static;
+        text-align: center;
+        margin: 20px 0 10px 0;
+        font-size: 22px;
+        padding: 0 10px;
+    }
+    /* Главный текст */
+    .glavn {
+        margin: 0 auto 20px auto;
+        width: 95%;
+        font-size: 15px;
+        padding: 10px;
+        position: static;
+    }
+    /* Опрос */
+    .opros {
+        width: 95%;
+        margin: 20px auto;
+        padding: 15px;
+        border-radius: 10px;
+        background: rgba(255,255,255,0.03);
+    }
+    .opros-button button {
+        width: 100%;
+        padding: 12px;
+        font-size: 15px;
+        border-radius: 8px;
+    }
+    /* Отзывы */
+    .otsiv-1, .otsiv-2 {
+        position: static;
+        display: flex;
+        align-items: center;
+        margin: 10px 10px 10px 10px;
+        padding: 10px;
+        background: #f5f5f5;
+        border-radius: 10px;
+        flex-direction: row;
+    }
+    .otsiv-11, .otsiv-22 {
+        margin-right: 10px;
+        width: 36px;
+        height: 36px;
+    }
+    .otsiv-111, .otsiv-222 {
+        font-size: 14px;
+    }
+    /* Текстовые блоки */
+    .tekst1, .tekst2, .tekst3, .tekst4, .tekst44, .tekst45, .tekst48, .tekst49 {
+        position: static;
+        text-align: left;
+        margin: 10px 0;
+        font-size: 15px;
+        padding: 0 10px;
+    }
+    /* Горизонтальное меню */
+    #Gmenu {
+        display: none !important;
+    }
+    /* Мобильное меню ссылок (колье, цепи, кольца, серьги) */
+    .custom-list {
+        width: 100%;
+        margin: 0 0 20px 0;
+        padding: 0 0 10px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        background: none;
+    }
+    .custom-list li {
+        width: 100%;
+        margin: 0 0 10px 0;
+        padding: 0;
+        float: none;
+        background: none;
+        text-align: left;
+    }
+    .custom-list a {
+        display: block;
+        width: 100%;
+        padding: 14px 0 14px 18px;
+        font-size: 18px;
+        color: #0D5C5C;
+        background: #fff;
+        border-radius: 8px;
+        margin-bottom: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 2px 8px rgba(13,92,92,0.07);
+        transition: background 0.2s, color 0.2s;
+    }
+    .custom-list a:active, .custom-list a:hover {
+        background: #CFB53B;
+        color: #fff;
+    }
+    /* Подвал: О нас и Контакты */
+    .rectangle1 {
+        display: none !important;
+    }
+}
+
+/* Адаптация для очень маленьких экранов */
+@media (max-width: 480px) {
+    #logoglavn {
+        width: 150px !important;
+        height: 30px !important;
+    }
+
+    #menuButton {
+        width: 50px !important;
+        height: 25px !important;
+    }
+
+    #toggle-cart {
+        width: 35px !important;
+        height: 25px !important;
+        right: 60px !important;
+    }
+
+    .vertical-menu a {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+
+    .custom-list li {
+        width: calc(100% - 10px);
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    h2, .h12, .h11 {
+        font-size: 18px;
+        margin: 15px 0 8px 0;
+    }
+
+    .glavn {
+        font-size: 13px;
+        padding: 5px;
+    }
+
+    .otsiv-1, .otsiv-2 {
+        padding: 7px;
+    }
+
+    .otsiv-11, .otsiv-22 {
+        width: 28px;
+        height: 28px;
+    }
+
+    .otsiv-111, .otsiv-222 {
+        font-size: 12px;
+    }
+
+    .tekst1, .tekst2, .tekst3, .tekst4, .tekst44, .tekst45, .tekst48, .tekst49 {
+        font-size: 13px;
+        padding: 0 5px;
+    }
+
+    .opros {
+        padding: 8px;
+    }
+
+    .opros-button button {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .custom-list a {
+        font-size: 16px;
+        padding: 12px 0 12px 12px;
+        border-radius: 7px;
+    }
+}
+
+/* Адаптация для планшетов */
+@media (min-width: 769px) and (max-width: 1024px) {
+    #logoglavn {
+        width: 220px !important;
+        height: 44px !important;
+    }
+
+    #menuButton {
+        width: 80px !important;
+        height: 36px !important;
+    }
+
+    #toggle-cart {
+        width: 50px !important;
+        height: 35px !important;
+        right: 85px !important;
+    }
+
+    .custom-list li {
+        width: calc(25% - 10px);
+        font-size: 16px;
+    }
+
+    .glavn, .tekst2, .tekst3, .tekst44, .tekst45, .tekst48 {
+        width: 80%;
+        font-size: 16px;
+    }
+
+    .mini-ik, .mini-ik2, .mini-ik3, .mini-ik4 {
+        position: static;
+        margin: 15px 0;
+        padding: 0 30px;
+    }
+}
+
+/* --- Современный подвал --- */
+html, body {
+    height: auto;
+}
+body {
+    min-height: 100vh;
+}
+#main-content {
+    flex: unset;
+}
+#nis {
+    margin-bottom: 0;
+    padding-bottom: 32px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 48px;
+    background: rgba(13, 92, 92, 0.97); /* чуть светлее и с прозрачностью */
+    color: #f7f9fa;
+    border-radius: 0;
+    box-shadow: 0 -2px 16px 0 rgba(13,92,92,0.10);
+    padding: 40px 5vw 32px 5vw;
+    margin: 0;
+    width: 100vw;
+    min-width: 280px;
+    font-size: 17px;
+    border-top: 1.5px solid #CFB53B; /* тонкая золотая линия */
+}
+#nis .footer-col {
+    flex: 1 1 0;
+    min-width: 220px;
+    max-width: 350px;
+    padding: 0 10px;
+}
+#nis h3 {
+    font-size: 21px;
+    margin-bottom: 12px;
+    font-weight: 700;
+    color: #CFB53B;
+    letter-spacing: 0.5px;
+    text-align: left;
+}
+#nis p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #f7f9fa;
+    text-align: left;
+}
+@media (max-width: 900px) {
+    #nis {
+        flex-direction: column;
+        gap: 24px;
+        padding: 28px 4vw 18px 4vw;
+        width: 100vw;
+    }
+    #nis .footer-col {
+        min-width: 0;
+        max-width: 100%;
+        padding: 0 2vw;
+    }
+    #nis h3, #nis p {
+        text-align: center;
+    }
+}
+@media (max-width: 600px) {
+    #nis {
+        padding: 16px 2vw 10px 2vw;
+        gap: 14px;
+        font-size: 15px;
+        border-radius: 0;
+    }
+    #nis h3 {
+        font-size: 16px;
+        margin-bottom: 6px;
+    }
+    #nis p {
+        font-size: 13px;
+    }
+}
+
+.rectangle1 {
+    display: none !important;
+} 

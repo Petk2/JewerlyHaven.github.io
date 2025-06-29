@@ -1,0 +1,298 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Jewelry Haven </title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="stylehead.css">
+    <link rel="stylesheet" href="notifications.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="notifications.js"></script>
+    <script src="py.js"></script>
+    <script>
+        $(document).ready(function() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            function renderCart() {
+                $('#cart-items').empty();
+                let total = 0;
+                cart.forEach((item, index) => {
+                    const itemTotal = parseFloat(item.price.replace(/\D/g, ''));
+                    total += itemTotal;
+                    $('#cart-items').append(`
+                        <div class="cart-item" data-index="${index}">
+                            <img src="${item.image}" alt="${item.name}">
+                            <div>${item.name}</div>
+                            <div>${item.price}</div>
+                            <button class="remove-btn" data-index="${index}">&times;</button>
+                        </div>
+                    `);
+                });
+                $('#cart-total').text(`Итого: ${total.toLocaleString()} руб.`);
+                localStorage.setItem('cart', JSON.stringify(cart));
+            }
+            $(document).on('click', '.add-to-cart', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const button = $(this);
+                const product = button.closest('.product-item');
+                const name = product.find('.product-name').text();
+                const price = product.find('.product-price').text();
+                const image = product.find('.product-image').attr('src');
+                
+                button.addClass('loading');
+                button.text('Добавляется...');
+                setTimeout(() => {
+                    cart.push({ name, price, image });
+                    jewelryNotifications.showCartNotification(name, price);
+                    button.removeClass('loading').addClass('success');
+                    button.text('Добавлено!');
+                    renderCart();
+                    setTimeout(() => {
+                        button.removeClass('success');
+                        button.text('Добавить в корзину');
+                    }, 2000);
+                }, 500);
+            });
+            $(document).on('click', '.remove-btn', function() {
+                const index = $(this).data('index');
+                const removedItem = cart[index];
+                cart.splice(index, 1);
+                if (removedItem) {
+                    jewelryNotifications.showCartRemoveNotification(removedItem.name);
+                }
+                renderCart();
+            });
+            $('#clear-cart').click(function() {
+                if (cart.length > 0) {
+                    cart = [];
+                    jewelryNotifications.showCartClearNotification();
+                    renderCart();
+                }
+            });
+            renderCart();
+            $('#toggle-cart').click(function() {
+                $('#cart').toggle();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="top" class="rectangle"></div>
+
+    <div style="position: relative; width: 100%;">
+        <img id="menuButton" src="img/menu.png" alt="Меню" width="100" height="45" style="cursor: pointer; position: fixed; z-index: 1;
+        right: 0; top: 4px; ">
+    </div>
+    <div id="menu">
+        <div class="vertical-menu">
+            <a href="index.html" id="naglavn" class="active">На главную</a>
+            <a href="kolye.html" id="kolye">колье</a>
+            <a href="cepi.html" id="cepi">цепи</a>
+            <a href="kolyca.html" id="kolyca">кольца</a>
+            <a href="cergi.html" id="cergi">серьги</a>
+            <a href="#rectangle11" id="vnis">О нас</a>
+        </div>
+    </div>
+
+    <a href="index.html"><img id="logoglavn" src="img/logo.png" class="absolute" alt="" width="260" height="52" style="cursor: pointer; z-index: 1; position: fixed;
+        top: 0px; left: 0px;  "></a>
+
+    <div id="cart" class="cart" style="display: none;">
+        <h3>Корзина</h3>
+        <div id="cart-items"></div>
+        <div id="cart-total">Итого: 0 руб.</div>
+        <button id="clear-cart">Очистить корзину</button>
+    </div>
+    <img src="img/korzina.png" id="toggle-cart" class="toggle-car" style="cursor:pointer;" alt="Показать/Скрыть корзину" width="60" height="40">
+
+    <br>
+
+    <div id="Gmenu">
+        <div class="gorizontal-menu">
+            <ul class="custom-list">
+
+                <li>
+                    <a href="kolye.html" class="a">колье</a>колье
+                </li>
+                <li>
+                    <a href="cepi.html" class="a">цепи</a>цепи
+                </li>
+                <li>
+                    <a href="kolyca.html" class="a">кольца</a>кольца
+                </li>
+                <li>
+                    <a href="cergi.html" class="a">серьги</a>серьги
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="h11">
+        <h2>Наши преимущества</h2>
+    </div>
+    <div class="mini-ik">
+        <div class="ik-1">
+            <img src="img/mnogo.png" alt="Более 600 постоянных клиентов" width="50" height="50">
+        </div>
+        <div class="ikk-1">Более 600 постоянных клиентов</div>
+    </div>
+    <div class="mini-ik2">
+        <div class="ik-2">
+            <img src="img/kolc.png" alt="Широчайший ассортимент изделий обновляется ежемесячно" width="50" height="50">
+        </div>
+        <div class="ikk-2">Широчайший ассортимент изделий</div>
+    </div>
+
+    <div class="mini-ik3">
+        <div class="ik-3">
+            <img src="img/cotr.png" alt="Гибкие условия сотрудничества" width="60" height="60">
+        </div>
+        <div class="ikk-3">Гибкие условия сотрудничества</div>
+    </div>
+
+    <div class="mini-ik4">
+        <div class="ik-4">
+            <img src="img/let.png" alt="5 лет на ювелирном рынке" width="50" height="50">
+        </div>
+        <div class="ikk-4">5 лет на ювелирном рынке</div>
+    </div>
+
+    <div class="h12">
+        <h2>Главная страница</h2>
+    </div>
+    <div class="glavn">
+        <p>1. Наша компания представлена на рынке уже более 4 лет, что говорит об успешности и стабильности компании, для Вас, мы – проверенные и надежные партнеры; <br>
+            2. Мы работаем с более чем 1500 клиентов по всей России, которые выбрали нас в качестве поставщика серебра оптом на свой рынок, поэтому Вы можете быть уверены, что работаете с престижной, крупной компанией;<br>
+            3. Мы растем вместе со своими клиентами, с которыми нас объединяет общая идеология и желание преподносить своему клиенту только актуальные новинки;<br>
+            4. Индивидуальный подход к каждому клиенту позволяет наиболее полно удовлетворять потребности каждого заказчика, мы всегда рассмотрим Ваши предложения и пожелания;<br>
+            5. Мы гарантируем приемлемые цены при высокой ликвидности предлагаемых изделий – Ваш магазин будет продавать и зарабатывать больше на нашей продукции;<br>
+            6. Ассортимент насчитывает более 40000 изделий и постоянно обновляется, таким образом, Вы всегда сможете купить серебро оптом и заполнить свои витрины разнообразным товаром; <br>
+            7. Доброжелательные и профессиональные менеджеры всегда готовы ответить на интересующие Вас вопросы, касающиеся поставок ювелирных изделий; <br>
+        </p>
+    </div>
+
+    <div class="tekst1">
+        <h2>Условия договоров</h2>
+    </div>
+    <div class="tekst2">
+        <p>Для каждого клиента мы готовы предложить индивидуальный подход к организации товарооборота в зависимости от объемов закупки и периодичности заказов. Основные типы договоров:</p>
+    </div>
+
+    <div class="tekst3">
+        <p>• договор поставки;<br>
+            • договор купли-продажи;<br>
+            • договор реализации;<br>
+        </p>
+    </div>
+    <div class="tekst4">
+        <h2>Наши клиенты о нас</h2>
+    </div>
+    <div class="tekst44">
+        <p>С этой компанией сотрудничаю только 2 года, и ассортимент у них просто превосходный, каждая партия приносит новые модели. В основном закупаю полудрагоценные камни, так как они лучше всего расходятся. Все устраивает, надеюсь на длительное сотрудничество.</p>
+    </div>
+    <div class="tekst45">
+        <p>Качество ваших изделий превосходит все остальные компании в категории изделий с кольцами и подвесками.</p>
+    </div>
+    <div class="otsiv-2">
+        <div class="otsiv-22">
+            <img src="img/chel.jpg" alt="И.П Петрова" width="50" height="50">
+        </div>
+        <div class="otsiv-222">И.П Петрова</div>
+    </div>
+
+    <div class="otsiv-1">
+        <div class="otsiv-11">
+            <img src="img/chel.jpg " alt="И.П Иванова А.Н" width="50" height="50">
+        </div>
+        <div class="otsiv-111">И.П Иванова А.Н.</div>
+    </div>
+    <div class="tekst48">
+        <p>1. Закажите бесплатный звонок по сайту, и наш менеджер в кротчайшие сроки свяжется с Вами, проконсультирует по всем интересующим вопросам и примет заказ.<br>
+            2. Воспользуйтесь интернет магазином, просто добавьте понравившиеся изделия в корзину и оформите заказ.<br>
+            3. Вы можете позвонить в наш офис по телефонам (495)617-09-11 и (495)646-12-09 и оформить заказ по телефону.<br>
+            4. Вы можете приехать к нам и посмотреть весь ассортимент, отобрав понравившиеся изделия.</p>
+    </div>
+    <div class="tekst49">
+        <h2>Как сделать заказ:</h2>
+    </div>
+
+
+
+    <div class="opros">
+        <div class="tekst-opros">
+            <p><b>Опрос</b></p>
+        </div>
+        <form id="surveyForm">
+            <h3>Как вы оцениваете наш сервис?</h3>
+            <label>
+                <input type="radio" name="service_rating" value="отлично"> Отлично
+            </label><br>
+            <label>
+                <input type="radio" name="service_rating" value="хорошо"> Хорошо
+            </label><br>
+            <label>
+                <input type="radio" name="service_rating" value="удовлетворительно"> Удовлетворительно
+            </label><br>
+            <label>
+                <input type="radio" name="service_rating" value="плохо"> Плохо
+            </label><br>
+
+            <h3>Как вы узнали о нас?</h3>
+            <label>
+                <input type="radio" name="source" value="интернет"> Интернет
+            </label><br>
+            <label>
+                <input type="radio" name="source" value="друзья"> Друзья
+            </label><br>
+            <label>
+                <input type="radio" name="source" value="реклама"> Реклама
+            </label><br>
+            <label>
+                <input type="radio" name="source" value="прочее"> Прочее
+            </label><br>
+
+            <div class="opros-button"><button type="submit">Отправить</button></div>
+        </form>
+
+        <div class="result" id="result"></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('surveyForm');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Предотвращаем стандартное поведение формы (перезагрузку страницы)
+                console.log('Форма отправлена'); // Проверка
+
+                const serviceRating = document.querySelector('input[name="service_rating"]:checked')?.value;
+                const source = document.querySelector('input[name="source"]:checked')?.value;
+                const resultDiv = document.getElementById('result');
+
+                if (serviceRating && source) {
+                    resultDiv.innerHTML = `Вы оценили наш сервис как "${serviceRating}", а узнали о нас через "${source}".`;
+                } else {
+                    resultDiv.innerHTML = 'Пожалуйста, ответьте на все вопросы.';
+                }
+            });
+        });
+
+    </script>
+    <canvas id="chartService" width="300" height="300"></canvas>
+    <canvas id="chartSource" width="300" height="300"></canvas>
+    <div id="rectangle11" class="rectangle1"></div>
+    <footer id="nis">
+        <div class="footer-col">
+            <h3>О нас</h3>
+            <p>Мы — ваш надежный ювелирный магазин, предлагающий изысканные украшения для особых моментов.</p>
+        </div>
+        <div class="footer-col">
+            <h3>Контакты</h3>
+            <p>Г.Моршанск, ул. Рабочая, д.162<br>телефон: +7 909 422-10-14</p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,260 @@
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="stylehead.css">
+    <link rel="stylesheet" href="cergi.css">
+    <link rel="stylesheet" href="notifications.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="notifications.js"></script>
+    <script src="py.js"></script>
+    <script>
+        $(document).ready(function() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            function renderCart() {
+                $('#cart-items').empty();
+                let total = 0;
+                cart.forEach((item, index) => {
+                    const itemTotal = parseFloat(item.price.replace(/\D/g, ''));
+                    total += itemTotal;
+                    $('#cart-items').append(`
+                        <div class="cart-item" data-index="${index}">
+                            <img src="${item.image}" alt="${item.name}">
+                            <div>${item.name}</div>
+                            <div>${item.price}</div>
+                            <button class="remove-btn" data-index="${index}">&times;</button>
+                        </div>
+                    `);
+                });
+                $('#cart-total').text(`Итого: ${total.toLocaleString()} руб.`);
+                localStorage.setItem('cart', JSON.stringify(cart));
+            }
+            $(document).on('click', '.add-to-cart', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const button = $(this);
+                const product = button.closest('.product-item');
+                const name = product.find('.product-name').text();
+                const price = product.find('.product-price').text();
+                const image = product.find('.product-image').attr('src');
+                
+                button.addClass('loading');
+                button.text('Добавляется...');
+                setTimeout(() => {
+                    cart.push({ name, price, image });
+                    jewelryNotifications.showCartNotification(name, price);
+                    button.removeClass('loading').addClass('success');
+                    button.text('Добавлено!');
+                    renderCart();
+                    setTimeout(() => {
+                        button.removeClass('success');
+                        button.text('Добавить в корзину');
+                    }, 2000);
+                }, 500);
+            });
+            $(document).on('click', '.remove-btn', function() {
+                const index = $(this).data('index');
+                const removedItem = cart[index];
+                cart.splice(index, 1);
+                if (removedItem) {
+                    jewelryNotifications.showCartRemoveNotification(removedItem.name);
+                }
+                renderCart();
+            });
+            $('#clear-cart').click(function() {
+                if (cart.length > 0) {
+                    cart = [];
+                    jewelryNotifications.showCartClearNotification();
+                    renderCart();
+                }
+            });
+            renderCart();
+            $('#toggle-cart').click(function() {
+                $('#cart').toggle();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="top" class="rectangle"></div>
+
+    <div style="position: relative; width: 100%;">
+        <img id="menuButton" src="img/menu.png" alt="Меню" width="100" height="45" style="cursor: pointer; position: fixed; z-index: 1;
+        right: 0; top: 4px; ">
+    </div>
+    <div id="menu">
+        <div class="vertical-menu">
+            <a href="index.html" id="naglavn">На главную</a>
+            <a href="kolye.html" id="kolye">колье</a>
+            <a href="cepi.html" id="cepi">цепи</a>
+            <a href="kolyca.html" id="kolyca">кольца</a>
+            <a href="cergi.html" id="cergi" class="active">серьги</a>
+            <a href="#rectangle11" id="vnis">О нас</a>
+        </div>
+    </div>
+
+    <a href="index.html"><img id="logoglavn" src="img/logo.png" class="absolute" alt="" width="260" height="52" style="cursor: pointer; z-index: 1; position: fixed;
+        top: 0px; left: 0px;  "></a>
+
+    <div id="cart" class="cart" style="display: none;">
+        <h3>Корзина</h3>
+        <div id="cart-items"></div>
+        <div id="cart-total">Итого: 0 руб.</div>
+        <button id="clear-cart">Очистить корзину</button>
+    </div>
+    <img src="img/korzina.png" id="toggle-cart" class="toggle-car" style="cursor:pointer;" alt="Показать/Скрыть корзину" width="60" height="40">
+
+    <h2 class="product-title">Серьги</h2>
+
+    <div class="assortment">
+
+        <!-- Товар №1 -->
+        <div class="product-item">
+            <img src="img/cergi/cergi1.jpg" alt="Колье из серебра" class="product-image" />
+            <div class="product-name">Серьги Крылья фианит</div>
+            <div class="product-price">2 800 руб.</div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+
+        <!-- Товар №2 -->
+        <div class="product-item">
+            <img src="img/cergi/cergi2.jpg" alt="Золотое кольцо" class="product-image" />
+            <div class="product-name">Серьги Краса Кварц розовый</div>
+            <div class="product-price">5 700 руб.</div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+
+        <!-- Товар №3 -->
+        <div class="product-item">
+            <img src="img/cergi/cergi3.jpg" alt="Серьги с бриллиантами" class="product-image" />
+            <div class="product-name">Серьги Лукум Кварц розовый</div>
+            <div class="product-price">5 500 руб.</div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+    </div>
+
+    <div class="assortment1">
+
+        <!-- Товар №4 -->
+        <div class="product-item">
+            <img src="img/cergi/cergi4.jpg" alt="Колье из серебра" class="product-image" />
+            <div class="product-name">Серьги Река Сердолик </div>
+            <div class="product-price">7 700 руб.</div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+
+        <!-- Товар №5 -->
+        <div class="product-item">
+            <img src="img/cergi/cergi5.jpg" alt="Золотое кольцо" class="product-image" />
+            <div class="product-name">Серьги Хвоя горный хрусталь </div>
+            <div class="product-price">5 500 руб.</div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+
+        <!-- Товар №6 -->
+        <div class="product-item">
+            <img src="img/cergi/cergi6.jpg" alt="Серьги с бриллиантами" class="product-image" />
+            <div class="product-name">Серьги Листва</div>
+            <div class="product-price">3 900 руб.</div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+    </div>
+    
+    <div class="assortment2">
+
+        <!-- Товар №7 -->
+        <div class="product-item">
+            <img src="img/cergi/cergi7.jpg" alt="Колье из серебра" class="product-image" />
+            <div class="product-name">Серьги Гравитация Змеевик  </div>
+            <div class="product-price">5 760 руб.</div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+
+        <!-- Товар №8 -->
+        <div class="product-item">
+            <img src="img/cergi/cergi8.jpg" alt="Золотое кольцо" class="product-image" />
+            <div class="product-name">Серьги Камень c.бирюза </div>
+            <div class="product-price">7 240 руб.</div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+
+        <!-- Товар №9 -->
+        <div class="product-item">
+            <img src="img/cergi/cergi9.jpg" alt="Серьги с бриллиантами" class="product-image" />
+            <div class="product-name">Серьги Восход раухтопаз</div>
+            <div class="product-price">7 200 руб.</div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+    </div>
+    <div class="assortment3">
+
+        <!-- Товар №10 -->
+        <div class="product-item">
+            <img src="img/cergi/cergi10.jpg" alt="Колье из серебра" class="product-image" />
+            <div class="product-name">Серьги Система Нефрит</div>
+            <div class="product-price">7 000 руб.</div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+
+        <!-- Товар №11 -->
+        <div class="product-item">
+            <img src="img/cergi/cergi11.jpg" alt="Золотое кольцо" class="product-image" />
+            <div class="product-name">Серьги Астра аквамарин</div>
+            <div class="product-price">9 030 руб.</div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+
+        <!-- Товар №12 -->
+        <div class="product-item">
+            <img src="img/cergi/cergi12.jpg" alt="Серьги с бриллиантами" class="product-image" />
+            <div class="product-name">Серьги Встреча c.бирюза</div>
+            <div class="product-price">8 100 руб.</div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+        
+        
+    </div>
+    
+     <div class="assortment4">
+
+        <!-- Товар №13 -->
+        <div class="product-item">
+            <img src="img/cergi/cergi13.jpg" alt="Колье из серебра" class="product-image" />
+            <div class="product-name">Серьги Дождь</div>
+            <div class="product-price">3 400 руб.</div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+
+        <!-- Товар №14 -->
+        <div class="product-item">
+            <img src="img/cergi/cergi14.jpg" alt="Золотое кольцо" class="product-image" />
+            <div class="product-name">Серьги Друзья</div>
+            <div class="product-price">2 530 руб.</div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+
+        <!-- Товар №15 -->
+        <div class="product-item">
+            <img src="img/cergi/cergi15.jpg" alt="Серьги с бриллиантами" class="product-image" />
+            <div class="product-name">Серьги Ракушка аквамарин </div>
+            <div class="product-price">10 130 руб.</div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+    </div>
+
+    <div id="rectangle11" class="rectangle1"></div>
+    <footer id="nis">
+      <div class="footer-col">
+        <h3>О нас</h3>
+        <p>Мы — ваш надежный ювелирный магазин, предлагающий изысканные украшения для особых моментов.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Контакты</h3>
+        <p>Г.Моршанск, ул. Рабочая, д.162<br>телефон: +7 909 422-10-14</p>
+      </div>
+    </footer>
+</body>
+</html>

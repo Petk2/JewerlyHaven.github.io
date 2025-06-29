@@ -389,37 +389,7 @@ h2 {
 
 }
 
-.opros {
-    position: absolute;
-    top: 8vh;
-    left: 82%;
-    font-family: Arial, sans-serif;
-    background-color: rgba(255, 255, 255, 0.1);
-    max-width: 300px;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
-    max-height: 430px;
-}
 
-.opros-button button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-left: 10px;
-    padding-right: 10px;
-    background: #218838;
-    max-height: 40px;
-    position: relative;
-    left: 100px;
-    cursor: pointer;
-    border-radius: 10px;
-
-}
-
-.tekst-opros {
-    text-align: center;
-    font-size: 25px;
-}
 
 h2,
 h3,

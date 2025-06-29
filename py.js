@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (vnis) {
         vnis.addEventListener('click', function (event) {
             event.preventDefault();
-            const rectangle11 = document.getElementById('rectangle11');
+            const rectangle11 = document.getElementById('nis');
             if (rectangle11) {
                 rectangle11.scrollIntoView({
                     behavior: 'smooth'

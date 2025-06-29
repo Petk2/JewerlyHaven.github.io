@@ -220,66 +220,6 @@
         <h2>Как сделать заказ:</h2>
     </div>
 
-
-
-    <div class="opros">
-        <div class="tekst-opros">
-            <p><b>Опрос</b></p>
-        </div>
-        <form id="surveyForm">
-            <h3>Как вы оцениваете наш сервис?</h3>
-            <label>
-                <input type="radio" name="service_rating" value="отлично"> Отлично
-            </label><br>
-            <label>
-                <input type="radio" name="service_rating" value="хорошо"> Хорошо
-            </label><br>
-            <label>
-                <input type="radio" name="service_rating" value="удовлетворительно"> Удовлетворительно
-            </label><br>
-            <label>
-                <input type="radio" name="service_rating" value="плохо"> Плохо
-            </label><br>
-
-            <h3>Как вы узнали о нас?</h3>
-            <label>
-                <input type="radio" name="source" value="интернет"> Интернет
-            </label><br>
-            <label>
-                <input type="radio" name="source" value="друзья"> Друзья
-            </label><br>
-            <label>
-                <input type="radio" name="source" value="реклама"> Реклама
-            </label><br>
-            <label>
-                <input type="radio" name="source" value="прочее"> Прочее
-            </label><br>
-
-            <div class="opros-button"><button type="submit">Отправить</button></div>
-        </form>
-
-        <div class="result" id="result"></div>
-    </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('surveyForm');
-            form.addEventListener('submit', function(event) {
-                event.preventDefault(); // Предотвращаем стандартное поведение формы (перезагрузку страницы)
-                console.log('Форма отправлена'); // Проверка
-
-                const serviceRating = document.querySelector('input[name="service_rating"]:checked')?.value;
-                const source = document.querySelector('input[name="source"]:checked')?.value;
-                const resultDiv = document.getElementById('result');
-
-                if (serviceRating && source) {
-                    resultDiv.innerHTML = `Вы оценили наш сервис как "${serviceRating}", а узнали о нас через "${source}".`;
-                } else {
-                    resultDiv.innerHTML = 'Пожалуйста, ответьте на все вопросы.';
-                }
-            });
-        });
-
-    </script>
     <canvas id="chartService" width="300" height="300"></canvas>
     <canvas id="chartSource" width="300" height="300"></canvas>
     <div id="rectangle11" class="rectangle1"></div>
